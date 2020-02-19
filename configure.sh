@@ -4,7 +4,7 @@
 # Remove extra functions
 # rm -rf /usr/bin/v2ray/geosite.dat /usr/bin/v2ray/geoip.dat
 # V2Ray new configuration
-cat <<-EOF > /etc/v2ray/config.json
+cat <<-EOF > /v2/v2ray/config.json
 {
   "inbounds": [
   {
@@ -31,4 +31,4 @@ cat <<-EOF > /etc/v2ray/config.json
   ]
 }
 EOF
-/v2/v2ray -config=/etc/v2ray/config.json
+/v2/v2ray -config=/v2/v2ray/config.json
