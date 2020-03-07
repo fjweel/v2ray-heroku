@@ -1,4 +1,5 @@
 FROM debian:stable-slim
+RUN apt-get update && apt-get install -y ca-certificates iptables curl bash
 
 #RUN apk add --no-cache --virtual .build-deps ca-certificates curl bash
 
