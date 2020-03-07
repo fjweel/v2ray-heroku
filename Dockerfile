@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM debian:latest
 
 RUN apk add --no-cache --virtual .build-deps ca-certificates curl bash
 ADD /v2/v2ray /v2/v2ray
