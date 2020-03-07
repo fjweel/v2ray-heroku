@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 
 #RUN apk add --no-cache --virtual .build-deps ca-certificates curl bash
-RUN apt install
+
 ADD /v2/v2ray /v2/v2ray
 RUN chmod +x /v2/v2ray
 
