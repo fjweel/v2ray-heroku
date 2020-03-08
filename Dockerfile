@@ -1,7 +1,6 @@
-FROM debian:stable-slim
-RUN apt-get update && apt-get install -y ca-certificates iptables curl bash
+FROM alpine:latest
 
-#RUN apk add --no-cache --virtual .build-deps ca-certificates curl bash
+RUN apk add --no-cache --virtual .build-deps ca-certificates curl bash
 
 ADD /v2/v2ray /v2/v2ray
 RUN chmod +x /v2/v2ray
