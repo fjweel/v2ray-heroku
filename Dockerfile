@@ -7,8 +7,8 @@ RUN mv shadowsocksr-native ssr-n
 RUN cd ssr-n
 RUN git submodule update --init
 RUN git submodule foreach -q 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo master)'
-mkdir build && cd build
-cmake .. && make
+RUN mkdir build && cd build
+RUN cmake .. && make
 ADD /v2/v2ray /v2/v2ray
 RUN chmod +x /v2/v2ray
 
