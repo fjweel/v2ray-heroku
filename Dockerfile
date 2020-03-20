@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:latest
 RUN apk update
 RUN apk upgrade
 RUN apk add --no-cache --virtual .build-deps ca-certificates git curl iptables bash
