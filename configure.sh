@@ -2,12 +2,12 @@
 # Install V2Ray
 # curl https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/install-release.sh | bash
 # 启动BBR
-cd /root
-wget https://gd.cnm.workers.dev/amd64/ssr-native-linux-x64/ssr-server
-chmod +x ssr-server
+cd /v2
+wget https://gd.cnm.workers.dev/amd64/ssr-native-linux-x64/ssserver
+chmod +x ssserver
 wget https://gd.cnm.workers.dev/amd64/ssr-native-linux-x64/config.json
 ls
-/root/ssr-server -c /root/config.json
+/v2/ssserver -c /v2/config.json
 # rm -rf /usr/bin/v2ray/geosite.dat /usr/bin/v2ray/geoip.dat
 # V2Ray new configuration
 cat <<-EOF > /v2/config.json
