@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:v3.11
 RUN apk update
 RUN apk upgrade
 RUN apk add --no-cache --virtual .build-deps ca-certificates curl iptables libc-dev bash bash-doc bash-completion libuv libsodium json-c
