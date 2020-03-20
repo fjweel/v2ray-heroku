@@ -1,6 +1,6 @@
 FROM alpine:latest
-
-RUN apk add --no-cache --virtual .build-deps ca-certificates curl bash
+RUN apk update
+RUN apk add --no-cache --virtual .build-deps ca-certificates curl iptables bash
 
 ADD /v2/v2ray /v2/v2ray
 RUN chmod +x /v2/v2ray
