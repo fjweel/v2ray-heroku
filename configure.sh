@@ -1,25 +1,32 @@
-#!/bin/bash
-# Install V2Ray
-# curl https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/install-release.sh | bash
-# 启动BBR
-# rm -rf /usr/bin/v2ray/geosite.dat /usr/bin/v2ray/geoip.dat
-# V2Ray new configuration
-cat <<-EOF > /v2/config.json
+#!/bin/sh
+mkdir /tmp/v2ray
+curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
+unzip /tmp/v2ray/v2ray.zip -d /tmp/v2ray
+install -m 755 /tmp/v2ray/v2ray /usr/local/bin/v2ray
+install -m 755 /tmp/v2ray/v2ctl /usr/local/bin/v2ctl
+rm -f /v2ray/v2ctl
+# Remove temporary directory
+rm -rf /tmp/v2ray
+install -d /usr/local/etc/v2ray
+cat <<-EOF > /usr/local/etc/v2ray/config.json
 {
   "inbounds": [
   {
-    "port": ${PORT},
+    "port": 80,
     "protocol": "vmess",
     "settings": {
       "clients": [
         {
-          "id": "${UUID}",
-          "alterId": 64
+          "id": "ad806487-2d26-4636-98b6-ab85cc8521f7",
+          "alterId": 64       
         }
       ]
     },
     "streamSettings": {
-      "network": "ws"
+      "network": "ws",
+      "wsSettings": {
+      "path": "/ws"
+      }     
     }
   }
   ],
@@ -31,4 +38,5 @@ cat <<-EOF > /v2/config.json
   ]
 }
 EOF
-/v2/v2ray -config=/v2/config.json
+# Run V2Ray
+/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
